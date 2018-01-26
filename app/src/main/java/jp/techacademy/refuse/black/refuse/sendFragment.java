@@ -133,7 +133,6 @@ public class sendFragment extends Fragment {
         view.findViewById(R.id.sendButton).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                removeFragment();
                 watchFragment fragmentWatch = new watchFragment();
                 getFragmentManager().beginTransaction()
                         .replace(R.id.container,fragmentWatch,watchFragment.TAG)
@@ -141,7 +140,5 @@ public class sendFragment extends Fragment {
             }
         });
     }
-    public  void removeFragment(){
-        getFragmentManager().beginTransaction().remove(this).commit();
-    }
+
 }
