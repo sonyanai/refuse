@@ -2,6 +2,7 @@ package jp.techacademy.refuse.black.refuse;
 
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -18,7 +19,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,22 +27,26 @@ import java.util.Map;
  */
 
 public class sendFragment extends Fragment {
-
+/*
     private String mContent;
     private String mCompanyName;
     private String mBlackName;
     private String mSymptom;
     private String mUid;
     private String mDate;
+
+    */
     private EditText companyNameEditText;
     private EditText blackNameEditText;
     private EditText contentEditText;
     private EditText caseEditText;
+    private EditText dateEditText;
     private Button sendButton;
     private ImageView imageView;
     private FirebaseUser user;
     private String companyName;
     private String blackName;
+    private String date;
     private String content;
     private String cases;
 
@@ -51,13 +55,6 @@ public class sendFragment extends Fragment {
     String key;
     public watchFragment fragmentWatch;
     private ArrayList<articleData> mArticleDataArrayList = new ArrayList<articleData>();
-    //date
-    final Calendar calendar = Calendar.getInstance();
-    final int year = calendar.get(Calendar.YEAR);
-    final int month = calendar.get(Calendar.MONTH);
-    final int day = calendar.get(Calendar.DAY_OF_MONTH);
-    final int hour = calendar.get(Calendar.HOUR_OF_DAY);
-    final int minute = calendar.get(Calendar.MINUTE);
 
 
     @Override
@@ -68,6 +65,7 @@ public class sendFragment extends Fragment {
 
         companyNameEditText = (EditText)v.findViewById(R.id.companyNameEditText);
         blackNameEditText = (EditText)v.findViewById(R.id.blackNameEditText);
+        dateEditText = (EditText)v.findViewById(R.id.dateEditText);
         contentEditText = (EditText)v.findViewById(R.id.contentEditText);
         caseEditText = (EditText)v.findViewById(R.id.caseEditText);
         imageView = (ImageView)v.findViewById(R.id.imageView);
@@ -86,12 +84,17 @@ public class sendFragment extends Fragment {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         contentsPathRef = databaseReference.child(Const.ContentsPATH);
         user = FirebaseAuth.getInstance().getCurrentUser();
-/*
-        sendButton.setOnClickListener(new View.OnClickListener(){
+        if (user==null){
+            MainActivity activity = (MainActivity) getActivity();
+            activity.intentLogin();
+        }
+
+
+
+
+        view.findViewById(R.id.sendButton).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
-
 
 
                 //realtimeDatabaseに送るよー
@@ -99,14 +102,12 @@ public class sendFragment extends Fragment {
 
                 String mUid = user.getUid();
 
-                //日時
-                String dateString = year + "/" + String.format("%02d", (month + 1)) + "/" + String.format("%02d", day);
-                String timeString = String.format("%02d", hour) + ":" + String.format("%02d", minute);
-                String date = dateString + timeString;
 
                 companyName = companyNameEditText.getText().toString();
                 blackName = blackNameEditText.getText().toString();
+                date = dateEditText.getText().toString();
                 cases = caseEditText.getText().toString();
+                content = contentEditText.getText().toString();
 
                 //Firebaseにデータ作成、データのkey取得
                 key = contentsPathRef.push().getKey();
@@ -123,16 +124,14 @@ public class sendFragment extends Fragment {
 
                 contentsPathRef.updateChildren(childUpdates);
 
-                removeFragment();
 
                 //送信完了のダイアログ表示
 
-            }
-        });
-        */
-        view.findViewById(R.id.sendButton).setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
+
+
+
+
+
                 watchFragment fragmentWatch = new watchFragment();
                 getFragmentManager().beginTransaction()
                         .replace(R.id.container,fragmentWatch,watchFragment.TAG)
