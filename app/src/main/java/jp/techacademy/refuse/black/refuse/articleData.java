@@ -6,8 +6,8 @@ package jp.techacademy.refuse.black.refuse;
 
 public class articleData {
     private String mContent;
-    private  String mCompanyName;
-    private  String mBlackName;
+    private String mCompanyName;
+    private String mBlackName;
     private String mSymptom;
     private String mUid;
     private String mDate;
@@ -16,7 +16,7 @@ public class articleData {
     public String getCompanyName(){
         return mCompanyName;
     }
-    public  String getBlackName(){
+    public String getBlackName(){
         return mBlackName;
     }
     public String getContent(){

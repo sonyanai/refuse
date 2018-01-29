@@ -51,13 +51,18 @@ public class watchFragment extends Fragment {
         public void onChildAdded(final DataSnapshot dataSnapshot, String s) {
             HashMap map = (HashMap) dataSnapshot.getValue();
             final String mUid = (String) map.get("mUid");
-            final String mDate = (String) map.get("mDate");
-            final String mCompanyName = (String) map.get("mCompanyName");
-            final String mBlackName = (String) map.get("mBlackName");
-            final String mContent = (String) map.get("mContent");
-            final String mCases = (String) map.get("mCases");
-            articleData post = new articleData(mUid, mDate, mCompanyName, mBlackName, mContent, mCases);
+            final String date = (String) map.get("date");
+            final String companyName = (String) map.get("companyName");
+            final String blackName = (String) map.get("blackName");
+            final String content = (String) map.get("content");
+            final String cases = (String) map.get("case");
+
+            articleData post = new articleData(mUid, date, companyName, blackName, content, cases);
             mArticleDataArrayList.add(post);
+
+            mAdapter.setArticleDataArrayList(mArticleDataArrayList);
+            mListView.setAdapter(mAdapter);
+            mAdapter.notifyDataSetChanged();
         }
 
         @Override
@@ -99,11 +104,10 @@ public class watchFragment extends Fragment {
     public void onViewCreated(View view,Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
         contentsPathRef.addChildEventListener(mEventListener);
 
-        mAdapter.setArticleDataArrayList(mArticleDataArrayList);
-        mListView.setAdapter(mAdapter);
-        mAdapter.notifyDataSetChanged();
+
         //imageViewのセット
         //imageView.setImageResource((R.drawable.aaa));
 

@@ -14,6 +14,7 @@ import java.util.ArrayList;
  * Created by taiso on 2018/01/21.
  */
 
+
 class ViewHolder {
     TextView companyTextView;
     TextView blackNameTextView;
@@ -61,7 +62,7 @@ public class ArticleDataArrayListAdapter extends BaseAdapter {
 
 
         if(mCompanyName!=null){
-        holder.companyTextView.setText("会社名　" + mCompanyName);
+        holder.companyTextView.setText("会社名  " + mCompanyName);
         }
         if(mBlackName!=null){
         holder.blackNameTextView.setText("社長名　" + mBlackName);
@@ -85,14 +86,19 @@ public class ArticleDataArrayListAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        //return null;
+        return articleDataArrayList.get(position);
     }
 
     @Override
     public long getItemId(int position) {
         return 0;
+        //return articleDataArrayList.get(position).getId();
     }
     public void setArticleDataArrayList(ArrayList<articleData> articleDataArrayList){
         this.articleDataArrayList = articleDataArrayList;
     }
 }
+
+
+
