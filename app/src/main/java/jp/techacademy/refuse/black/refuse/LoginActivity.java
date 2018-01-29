@@ -195,6 +195,10 @@ public class LoginActivity extends AppCompatActivity {
 
         // アカウントを作成する
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(mCreateAccountListener);
+
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        //sendFragment
     }
 
     private void login(String email, String password) {
@@ -206,6 +210,8 @@ public class LoginActivity extends AppCompatActivity {
 
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
+
+        //sendFragment
     }
 
     private void saveName(String name) {

@@ -25,6 +25,11 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/dateEditText"
+        android:hint="発生年"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/contentEditText"
         android:hint="内容"/>
     <EditText
