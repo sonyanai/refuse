@@ -13,10 +13,14 @@ import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by taiso on 2018/01/21.
@@ -37,6 +41,40 @@ public class watchFragment extends Fragment {
     DatabaseReference contentsPathRef;
     //検索ワード
     String cord;
+
+
+
+
+    //mEventListenerの設定と初期化
+    ChildEventListener mEventListener = new ChildEventListener() {
+        @Override
+        public void onChildAdded(final DataSnapshot dataSnapshot, String s) {
+            HashMap map = (HashMap) dataSnapshot.getValue();
+            final String mUid = (String) map.get("mUid");
+            final String mDate = (String) map.get("mDate");
+            final String mCompanyName = (String) map.get("mCompanyName");
+            final String mBlackName = (String) map.get("mBlackName");
+            final String mContent = (String) map.get("mContent");
+            final String mCases = (String) map.get("mCases");
+            articleData post = new articleData(mUid, mDate, mCompanyName, mBlackName, mContent, mCases);
+            mArticleDataArrayList.add(post);
+        }
+
+        @Override
+        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+        }
+        @Override
+        public void onChildRemoved(DataSnapshot dataSnapshot) {
+        }
+        @Override
+        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+        }
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+        }
+    };
+
+
 
 
     @Override
@@ -60,6 +98,8 @@ public class watchFragment extends Fragment {
 
     public void onViewCreated(View view,Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        contentsPathRef.addChildEventListener(mEventListener);
 
         mAdapter.setArticleDataArrayList(mArticleDataArrayList);
         mListView.setAdapter(mAdapter);
