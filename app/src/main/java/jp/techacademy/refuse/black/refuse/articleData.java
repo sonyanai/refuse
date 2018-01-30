@@ -11,6 +11,7 @@ public class articleData {
     private String mCase;
     private String mUid;
     private String mDate;
+    private String mRef;
 
 
     public String getCompanyName(){
@@ -31,13 +32,17 @@ public class articleData {
     public String getDate(){
         return mDate;
     }
+    public String getRef(){
+        return mRef;
+    }
 
-    public articleData(String uid,String date,String companyName, String blackName,String content,  String cases ) {
+    public articleData(String uid,String date,String companyName, String blackName,String content,  String cases, String ref) {
         mUid = uid;
         mDate = date;
         mCompanyName = companyName;
         mBlackName = blackName;
         mContent = content;
         mCase = cases;
+        mRef = ref;
     }
 }

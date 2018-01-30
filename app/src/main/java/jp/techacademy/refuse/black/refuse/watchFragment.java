@@ -56,8 +56,9 @@ public class watchFragment extends Fragment {
             final String blackName = (String) map.get("blackName");
             final String content = (String) map.get("content");
             final String cases = (String) map.get("case");
+            final String ref = (String) map.get("ref");
 
-            articleData post = new articleData(mUid, date, companyName, blackName, content, cases);
+            articleData post = new articleData(mUid, date, companyName, blackName, content, cases, ref);
             mArticleDataArrayList.add(post);
 
             mAdapter.setArticleDataArrayList(mArticleDataArrayList);

@@ -71,7 +71,7 @@ public class ArticleDataArrayListAdapter extends BaseAdapter {
             holder.caseTextView.setText("ケース　" + mCase);
         }
         if(mDate!=null){
-            holder.dateTextView.setText("投稿日　"+ mDate);
+            holder.dateTextView.setText("発生年　"+ mDate);
         }
 
 

@@ -27,20 +27,14 @@ import java.util.Map;
  */
 
 public class sendFragment extends Fragment {
-/*
-    private String mContent;
-    private String mCompanyName;
-    private String mBlackName;
-    private String mSymptom;
-    private String mUid;
-    private String mDate;
 
-    */
+
     private EditText companyNameEditText;
     private EditText blackNameEditText;
     private EditText contentEditText;
     private EditText caseEditText;
     private EditText dateEditText;
+    private EditText refEditText;
     private Button sendButton;
     private ImageView imageView;
     private FirebaseUser user;
@@ -49,6 +43,7 @@ public class sendFragment extends Fragment {
     private String date;
     private String content;
     private String cases;
+    private String ref;
 
     DatabaseReference databaseReference;
     DatabaseReference contentsPathRef;
@@ -68,6 +63,7 @@ public class sendFragment extends Fragment {
         dateEditText = (EditText)v.findViewById(R.id.dateEditText);
         contentEditText = (EditText)v.findViewById(R.id.contentEditText);
         caseEditText = (EditText)v.findViewById(R.id.caseEditText);
+        refEditText = (EditText)v.findViewById(R.id.refEditText);
         imageView = (ImageView)v.findViewById(R.id.imageView);
         sendButton = (Button)v.findViewById(R.id.sendButton);
 
@@ -107,6 +103,7 @@ public class sendFragment extends Fragment {
                 blackName = blackNameEditText.getText().toString();
                 date = dateEditText.getText().toString();
                 cases = caseEditText.getText().toString();
+                ref = refEditText.getText().toString();
                 content = contentEditText.getText().toString();
 
                 //Firebaseにデータ作成、データのkey取得
@@ -118,6 +115,7 @@ public class sendFragment extends Fragment {
                 data.put("blackName", blackName);
                 data.put("content",content);
                 data.put("case", cases);
+                data.put("ref",ref);
 
                 Map<String, Object> childUpdates = new HashMap<>();
                 childUpdates.put(key, data);

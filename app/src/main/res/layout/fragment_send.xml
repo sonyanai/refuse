@@ -15,28 +15,40 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxLength="30"
         android:id="@+id/companyNameEditText"
         android:hint="会社名"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxLength="30"
         android:id="@+id/blackNameEditText"
         android:hint="社長名"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="number"
+        android:maxLength="4"
         android:id="@+id/dateEditText"
-        android:hint="発生年"/>
+        android:hint="発生年(西暦)"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxLength="100"
         android:id="@+id/caseEditText"
         android:hint="事例"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxLength="200"
         android:id="@+id/contentEditText"
         android:hint="その他"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="100"
+        android:id="@+id/refEditText"
+        android:hint="参照元"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
