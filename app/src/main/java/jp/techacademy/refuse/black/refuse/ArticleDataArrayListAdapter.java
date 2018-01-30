@@ -38,7 +38,7 @@ public class ArticleDataArrayListAdapter extends BaseAdapter {
 
         String mCompanyName = articleDataArrayList.get(position).getCompanyName();
         String mBlackName = articleDataArrayList.get(position).getBlackName();
-        String mCase = articleDataArrayList.get(position).getSymptom();
+        String mCase = articleDataArrayList.get(position).getCase();
         String mDate = articleDataArrayList.get(position).getDate();
 
 

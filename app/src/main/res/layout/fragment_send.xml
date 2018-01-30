@@ -30,13 +30,13 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/contentEditText"
-        android:hint="内容"/>
+        android:id="@+id/caseEditText"
+        android:hint="事例"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/caseEditText"
-        android:hint="事例"/>
+        android:id="@+id/contentEditText"
+        android:hint="その他"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
