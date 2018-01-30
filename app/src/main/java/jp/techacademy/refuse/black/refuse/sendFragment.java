@@ -2,10 +2,13 @@ package jp.techacademy.refuse.black.refuse;
 
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +47,7 @@ public class sendFragment extends Fragment {
     private String content;
     private String cases;
     private String ref;
+    private String variable;
 
     DatabaseReference databaseReference;
     DatabaseReference contentsPathRef;
@@ -80,6 +84,7 @@ public class sendFragment extends Fragment {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         contentsPathRef = databaseReference.child(Const.ContentsPATH);
         user = FirebaseAuth.getInstance().getCurrentUser();
+        variable = "";
         if (user==null){
             MainActivity activity = (MainActivity) getActivity();
             activity.intentLogin();
@@ -106,36 +111,84 @@ public class sendFragment extends Fragment {
                 ref = refEditText.getText().toString();
                 content = contentEditText.getText().toString();
 
-                //Firebaseにデータ作成、データのkey取得
-                key = contentsPathRef.push().getKey();
+                if(blackName==null){
+                    blackName = " ";
+                }
+                if(content==null){
+                    content = " ";
+                }
+                if(companyName!=null){
+                    if (date !=null){
+                        if (cases!=null){
+                            if (ref!=null){
+                                //Firebaseにデータ作成、データのkey取得
+                                key = contentsPathRef.push().getKey();
 
-                data.put("mUid", mUid);
-                data.put("date", date);
-                data.put("companyName", companyName);
-                data.put("blackName", blackName);
-                data.put("content",content);
-                data.put("case", cases);
-                data.put("ref",ref);
+                                data.put("mUid", mUid);
+                                data.put("date", date);
+                                data.put("companyName", companyName);
+                                data.put("blackName", blackName);
+                                data.put("content",content);
+                                data.put("case", cases);
+                                data.put("ref",ref);
 
-                Map<String, Object> childUpdates = new HashMap<>();
-                childUpdates.put(key, data);
+                                Map<String, Object> childUpdates = new HashMap<>();
+                                childUpdates.put(key, data);
 
-                contentsPathRef.updateChildren(childUpdates);
-
-
-                //送信完了のダイアログ表示
+                                contentsPathRef.updateChildren(childUpdates);
 
 
+                                //送信完了のダイアログ表示
+                                watchFragment fragmentWatch = new watchFragment();
+                                getFragmentManager().beginTransaction()
+                                        .replace(R.id.container,fragmentWatch,watchFragment.TAG)
+                                        .commit();
+                            }else{
+                                variable="会社名を入力してください";
+                                AlertDialog();
+                            }
+                        }else{
+                            variable="発生年を入力してください";
+                            AlertDialog();
+                        }
+                    }else{
+                        variable="事例を入力してください";
+                        AlertDialog();
+                    }
+                }else{
+                    variable="参照元を入力してください";
+                    AlertDialog();
+                }
 
 
 
 
-                watchFragment fragmentWatch = new watchFragment();
-                getFragmentManager().beginTransaction()
-                        .replace(R.id.container,fragmentWatch,watchFragment.TAG)
-                        .commit();
+
+
+
+
             }
         });
+    }
+
+    public void AlertDialog() {
+        // AlertDialog.Builderクラスを使ってAlertDialogの準備をする
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this.getActivity());
+        alertDialogBuilder.setTitle("");
+        alertDialogBuilder.setMessage(variable);
+
+        // 肯定ボタンに表示される文字列、押したときのリスナーを設定する
+        alertDialogBuilder.setPositiveButton("ok",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Log.d("UI_PARTS", "肯定ボタン");
+                    }
+                });
+
+        // AlertDialogを作成して表示する
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 
 }
