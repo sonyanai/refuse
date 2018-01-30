@@ -111,16 +111,17 @@ public class sendFragment extends Fragment {
                 ref = refEditText.getText().toString();
                 content = contentEditText.getText().toString();
 
-                if(blackName==null){
-                    blackName = " ";
+                if (blackName.length()==0){
+                    blackName="未入力";
                 }
-                if(content==null){
-                    content = " ";
+                if (content.length()==0){
+                    content="未入力";
                 }
-                if(companyName!=null){
-                    if (date !=null){
-                        if (cases!=null){
-                            if (ref!=null){
+
+                if(companyName.length()!=0){
+                    if (date.length()!=0){
+                        if (cases.length()!=0){
+                            if (ref.length()!=0){
                                 //Firebaseにデータ作成、データのkey取得
                                 key = contentsPathRef.push().getKey();
 
@@ -143,27 +144,10 @@ public class sendFragment extends Fragment {
                                 getFragmentManager().beginTransaction()
                                         .replace(R.id.container,fragmentWatch,watchFragment.TAG)
                                         .commit();
-                            }else{
-                                variable="会社名を入力してください";
-                                AlertDialog();
                             }
-                        }else{
-                            variable="発生年を入力してください";
-                            AlertDialog();
                         }
-                    }else{
-                        variable="事例を入力してください";
-                        AlertDialog();
                     }
-                }else{
-                    variable="参照元を入力してください";
-                    AlertDialog();
                 }
-
-
-
-
-
 
 
 
