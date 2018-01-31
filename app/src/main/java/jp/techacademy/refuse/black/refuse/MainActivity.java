@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
         watchFragment fragmentWatch = new watchFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         // 他にも、メソッドにはreplace removeがあります

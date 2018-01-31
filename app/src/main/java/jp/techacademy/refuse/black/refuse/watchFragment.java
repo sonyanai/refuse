@@ -114,6 +114,7 @@ public class watchFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
+        mArticleDataArrayList.clear();
         contentsPathRef.addChildEventListener(mEventListener);
 
 
@@ -128,6 +129,7 @@ public class watchFragment extends Fragment {
                 //検索ワードの取得
                 cord=searchEditText.getText().toString();
                 if (cord.length() > 0) {
+                    bArticleDataArrayList.clear();
                     for (articleData aaa : mArticleDataArrayList){
                         if (aaa.getCompanyName().equals(cord)){
                             bArticleDataArrayList.add(aaa);
@@ -143,14 +145,11 @@ public class watchFragment extends Fragment {
         closeButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                mArticleDataArrayList.clear();
+                searchEditText.getText().clear();
                 contentsPathRef.addChildEventListener(mEventListener);
             }
         });
-
-
-
-
-
 
         //ListViewをタップした時
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -173,7 +172,6 @@ public class watchFragment extends Fragment {
                         .replace(R.id.container,fragmentThis,thisFragment.TAG)
                         .commit();
 
-                //thisFragmentにデータを送る
             }
         });
 /*
@@ -182,7 +180,7 @@ public class watchFragment extends Fragment {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
-                // タスクを削除する
+                // お気に入りに追加
 
                 return true;
             }
