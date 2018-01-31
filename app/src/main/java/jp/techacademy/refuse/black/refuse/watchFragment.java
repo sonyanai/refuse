@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,6 +35,7 @@ public class watchFragment extends Fragment {
 
     private Button searchButton;
     private EditText searchEditText;
+    private ImageButton closeButton;
     //内容とか入っているリスト
     public ArrayList<articleData> mArticleDataArrayList;
     public ArrayList<articleData> bArticleDataArrayList;
@@ -94,6 +97,7 @@ public class watchFragment extends Fragment {
 
         searchButton = (Button)v.findViewById(R.id.searchButton);
         searchEditText = (EditText)v.findViewById(R.id.searchEditText);
+        closeButton = (ImageButton)v.findViewById(R.id.closeButton);
         mArticleDataArrayList = new ArrayList<articleData>();
         bArticleDataArrayList = new ArrayList<articleData>();
         mAdapter = new ArticleDataArrayListAdapter(this.getActivity(), R.layout.new_list);
@@ -132,11 +136,20 @@ public class watchFragment extends Fragment {
                             mAdapter.notifyDataSetChanged();
                         }
                     }
-
-
                 }
             }
         });
+
+        closeButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                contentsPathRef.addChildEventListener(mEventListener);
+            }
+        });
+
+
+
+
 
 
         //ListViewをタップした時

@@ -18,6 +18,13 @@
             android:inputType="text"
             android:hint="会社名を入力" />
 
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/closeButton"
+            android:background="#ffffff"
+            android:src="@drawable/cross1"/>
+
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
