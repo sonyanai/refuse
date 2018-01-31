@@ -35,6 +35,7 @@ public class watchFragment extends Fragment {
     private EditText searchEditText;
     //内容とか入っているリスト
     public ArrayList<articleData> mArticleDataArrayList;
+    public ArrayList<articleData> bArticleDataArrayList;
     private ArticleDataArrayListAdapter mAdapter;
     private ListView mListView;
     thisFragment fragmentThis;
@@ -94,6 +95,7 @@ public class watchFragment extends Fragment {
         searchButton = (Button)v.findViewById(R.id.searchButton);
         searchEditText = (EditText)v.findViewById(R.id.searchEditText);
         mArticleDataArrayList = new ArrayList<articleData>();
+        bArticleDataArrayList = new ArrayList<articleData>();
         mAdapter = new ArticleDataArrayListAdapter(this.getActivity(), R.layout.new_list);
         mListView = (ListView)v.findViewById(R.id.articleDataListView);
 
@@ -122,14 +124,16 @@ public class watchFragment extends Fragment {
                 //検索ワードの取得
                 cord=searchEditText.getText().toString();
                 if (cord.length() > 0) {
+                    for (articleData aaa : mArticleDataArrayList){
+                        if (aaa.getCompanyName().equals(cord)){
+                            bArticleDataArrayList.add(aaa);
+                            mAdapter.setArticleDataArrayList(bArticleDataArrayList);
+                            mListView.setAdapter(mAdapter);
+                            mAdapter.notifyDataSetChanged();
+                        }
+                    }
 
 
-
-                    //文字が入力されているときの処理
-                    /*if(検索ワード){
-                    * あるときの処理
-                    * }else{
-                    * ないときの処理}*/
                 }
             }
         });

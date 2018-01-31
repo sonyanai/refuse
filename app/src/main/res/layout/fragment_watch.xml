@@ -16,7 +16,7 @@
             android:layout_alignParentTop="true"
             android:id="@+id/searchEditText"
             android:inputType="text"
-            android:hint="search" />
+            android:hint="会社名を入力" />
 
         <Button
             android:layout_width="0dp"
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:id="@+id/searchButton"
-            android:text="会社名を検索"/>
+            android:text="検索"/>
 
     </LinearLayout>
 
