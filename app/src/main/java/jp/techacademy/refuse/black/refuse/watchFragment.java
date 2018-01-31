@@ -122,6 +122,9 @@ public class watchFragment extends Fragment {
                 //検索ワードの取得
                 cord=searchEditText.getText().toString();
                 if (cord.length() > 0) {
+
+
+
                     //文字が入力されているときの処理
                     /*if(検索ワード){
                     * あるときの処理

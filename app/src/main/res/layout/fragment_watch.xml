@@ -24,10 +24,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:id="@+id/searchButton"
-            android:text="検索"/>
+            android:text="会社名を検索"/>
 
     </LinearLayout>
-    
+
 
     <ListView
         android:layout_width="match_parent"
