@@ -169,7 +169,7 @@ public class watchFragment extends Fragment {
                 fragmentThis.setArguments(bundle);
 
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.container,fragmentThis,thisFragment.TAG)
+                        .add(R.id.container,fragmentThis,thisFragment.TAG)
                         .commit();
 
             }
