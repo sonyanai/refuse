@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -21,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.StringTokenizer;
 
 /**
  * Created by taiso on 2018/01/21.
@@ -57,8 +59,8 @@ public class watchFragment extends Fragment {
             final String content = (String) map.get("content");
             final String cases = (String) map.get("case");
             final String ref = (String) map.get("ref");
-
-            articleData post = new articleData(mUid, date, companyName, blackName, content, cases, ref);
+            final String key = (String) map.get("key");
+            articleData post = new articleData(mUid, date, companyName, blackName, content, cases, ref, key);
             mArticleDataArrayList.add(post);
 
             mAdapter.setArticleDataArrayList(mArticleDataArrayList);
@@ -128,6 +130,28 @@ public class watchFragment extends Fragment {
                 }
             }
         });
+
+
+        //ListViewをタップした時
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // 入力・編集する画面に遷移させる
+            }
+        });
+/*
+        // ListViewを長押ししたときの処理
+        mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                // タスクを削除する
+
+                return true;
+            }
+        });
+*/
+
 
     }
 

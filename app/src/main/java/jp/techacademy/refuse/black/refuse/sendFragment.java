@@ -84,7 +84,6 @@ public class sendFragment extends Fragment {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         contentsPathRef = databaseReference.child(Const.ContentsPATH);
         user = FirebaseAuth.getInstance().getCurrentUser();
-        variable = "";
         if (user==null){
             MainActivity activity = (MainActivity) getActivity();
             activity.intentLogin();
@@ -132,6 +131,7 @@ public class sendFragment extends Fragment {
                                 data.put("content",content);
                                 data.put("case", cases);
                                 data.put("ref",ref);
+                                data.put("key",key);
 
                                 Map<String, Object> childUpdates = new HashMap<>();
                                 childUpdates.put(key, data);
@@ -150,29 +150,9 @@ public class sendFragment extends Fragment {
                 }
 
 
-
             }
         });
     }
 
-    public void AlertDialog() {
-        // AlertDialog.Builderクラスを使ってAlertDialogの準備をする
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this.getActivity());
-        alertDialogBuilder.setTitle("");
-        alertDialogBuilder.setMessage(variable);
-
-        // 肯定ボタンに表示される文字列、押したときのリスナーを設定する
-        alertDialogBuilder.setPositiveButton("ok",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Log.d("UI_PARTS", "肯定ボタン");
-                    }
-                });
-
-        // AlertDialogを作成して表示する
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
-    }
 
 }
