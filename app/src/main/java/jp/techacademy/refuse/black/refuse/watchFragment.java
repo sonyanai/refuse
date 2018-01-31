@@ -22,7 +22,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.StringTokenizer;
 
 /**
  * Created by taiso on 2018/01/21.
@@ -38,6 +37,7 @@ public class watchFragment extends Fragment {
     public ArrayList<articleData> mArticleDataArrayList;
     private ArticleDataArrayListAdapter mAdapter;
     private ListView mListView;
+    thisFragment fragmentThis;
     FirebaseUser user;
     DatabaseReference databaseReference;
     DatabaseReference contentsPathRef;
@@ -137,6 +137,12 @@ public class watchFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // 入力・編集する画面に遷移させる
+                thisFragment fragmentThis = new thisFragment();
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.container,fragmentThis,thisFragment.TAG)
+                        .commit();
+
+                //thisFragmentにデータを送る
             }
         });
 /*
