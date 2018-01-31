@@ -136,8 +136,19 @@ public class watchFragment extends Fragment {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // 入力・編集する画面に遷移させる
+
+                Bundle bundle = new Bundle();
+                bundle.putString("mUid", mArticleDataArrayList.get(position).getUid());
+                bundle.putString("date", mArticleDataArrayList.get(position).getDate());
+                bundle.putString("companyName", mArticleDataArrayList.get(position).getCompanyName());
+                bundle.putString("blackName", mArticleDataArrayList.get(position).getBlackName());
+                bundle.putString("content", mArticleDataArrayList.get(position).getContent());
+                bundle.putString("cases", mArticleDataArrayList.get(position).getCase());
+                bundle.putString("ref", mArticleDataArrayList.get(position).getRef());
+                bundle.putString("key", mArticleDataArrayList.get(position).getKey());
                 thisFragment fragmentThis = new thisFragment();
+                fragmentThis.setArguments(bundle);
+
                 getFragmentManager().beginTransaction()
                         .replace(R.id.container,fragmentThis,thisFragment.TAG)
                         .commit();
