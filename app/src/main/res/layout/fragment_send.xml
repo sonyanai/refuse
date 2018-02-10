@@ -3,55 +3,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_horizontal">
+    android:paddingTop="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp">
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:id="@+id/imageView"
-        android:layout_marginTop="80dp"
-        android:contentDescription="注意事項"/>
-    <EditText
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxLength="30"
-        android:textColorHint="#ff0000"
-        android:id="@+id/companyNameEditText"
-        android:hint="会社名"/>
+        android:textColor="#ff0000"
+        android:text="会社名"/>
     <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLength="30"
+        android:id="@+id/companyNameEditText"
+        android:hint="会社名を入力"/>
+    <TextView
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="社長名"/>
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLength="30"
         android:id="@+id/blackNameEditText"
-        android:hint="社長名"/>
-    <EditText
+        android:hint="社長名を入力"/>
+    <TextView
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ff0000"
+        android:text="発生年(西暦)"/>
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:maxLength="4"
-        android:textColorHint="#ff0000"
         android:id="@+id/dateEditText"
-        android:hint="発生年(西暦)"/>
-    <EditText
+        android:hint="発生年(西暦)を入力"/>
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxLength="100"
-        android:textColorHint="#ff0000"
-        android:id="@+id/caseEditText"
-        android:hint="事例"/>
+        android:textColor="#ff0000"
+        android:text="事例"/>
     <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLength="100"
+        android:id="@+id/caseEditText"
+        android:hint="事例を入力"/>
+    <TextView
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="その他"/>
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLength="200"
         android:id="@+id/contentEditText"
         android:hint="その他"/>
-    <EditText
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#ff0000"
+        android:text="参照元"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:maxLength="100"
-        android:textColorHint="#ff0000"
         android:id="@+id/refEditText"
-        android:hint="参照元"/>
+        android:hint="参照元を入力"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

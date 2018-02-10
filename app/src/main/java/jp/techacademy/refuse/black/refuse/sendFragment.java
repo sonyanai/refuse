@@ -2,19 +2,13 @@ package jp.techacademy.refuse.black.refuse;
 
 
 
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -39,7 +33,6 @@ public class sendFragment extends Fragment {
     private EditText dateEditText;
     private EditText refEditText;
     private Button sendButton;
-    private ImageView imageView;
     private FirebaseUser user;
     private String companyName;
     private String blackName;
@@ -68,7 +61,6 @@ public class sendFragment extends Fragment {
         contentEditText = (EditText)v.findViewById(R.id.contentEditText);
         caseEditText = (EditText)v.findViewById(R.id.caseEditText);
         refEditText = (EditText)v.findViewById(R.id.refEditText);
-        imageView = (ImageView)v.findViewById(R.id.imageView);
         sendButton = (Button)v.findViewById(R.id.sendButton);
 
 
@@ -78,8 +70,6 @@ public class sendFragment extends Fragment {
     public void onViewCreated(View view,Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
-        //imageViewのセット
-        //imageView.setImageResource((R.drawable.aaa));
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
         contentsPathRef = databaseReference.child(Const.ContentsPATH);
