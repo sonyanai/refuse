@@ -84,6 +84,17 @@
         android:id="@+id/sendButton"
         android:layout_gravity="center"
         android:text="送信"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/backTextView"
+        android:textColor="#0000ff"
+        android:text="リストへ戻る"
+        android:onClick="testToast"
+        android:paddingTop="10dp"
+        android:paddingLeft="25dp"
+        android:clickable="true"/>
+
 
 
 </LinearLayout>

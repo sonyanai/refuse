@@ -11,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -117,9 +116,6 @@ public class watchFragment extends Fragment {
         mArticleDataArrayList.clear();
         contentsPathRef.addChildEventListener(mEventListener);
 
-
-        //imageViewのセット
-        //imageView.setImageResource((R.drawable.aaa));
 
 
 

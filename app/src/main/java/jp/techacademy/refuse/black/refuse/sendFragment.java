@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -41,10 +43,12 @@ public class sendFragment extends Fragment {
     private String cases;
     private String ref;
     private String variable;
+    private TextView backTextView;
 
     DatabaseReference databaseReference;
     DatabaseReference contentsPathRef;
     String key;
+
     public watchFragment fragmentWatch;
     private ArrayList<articleData> mArticleDataArrayList = new ArrayList<articleData>();
 
@@ -62,6 +66,7 @@ public class sendFragment extends Fragment {
         caseEditText = (EditText)v.findViewById(R.id.caseEditText);
         refEditText = (EditText)v.findViewById(R.id.refEditText);
         sendButton = (Button)v.findViewById(R.id.sendButton);
+        backTextView = (TextView)v.findViewById(R.id.backTextView);
 
 
         return v;
@@ -78,6 +83,18 @@ public class sendFragment extends Fragment {
             MainActivity activity = (MainActivity) getActivity();
             activity.intentLogin();
         }
+
+        backTextView.setClickable(true);
+        backTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                watchFragment fragmentWatch = new watchFragment();
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.container,fragmentWatch,watchFragment.TAG)
+                        .commit();
+            }
+        });
+
 
 
 
