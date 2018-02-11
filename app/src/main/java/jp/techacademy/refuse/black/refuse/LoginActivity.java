@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText mEmailEditText;
     EditText mPasswordEditText;
-    EditText mNameEditText;
+    //EditText mNameEditText;
     ProgressDialog mProgress;
 
     FirebaseAuth mAuth;
@@ -88,18 +88,18 @@ public class LoginActivity extends AppCompatActivity {
                     // 成功した場合
                     FirebaseUser user = mAuth.getCurrentUser();
                     DatabaseReference userRef = mDataBaseReference.child(Const.UsersPATH).child(user.getUid());
-
+/*
                     if (mIsCreateAccount) {
                         // アカウント作成の時は表示名をFirebaseに保存する
-                        String name = mNameEditText.getText().toString();
+                       // String name = mNameEditText.getText().toString();
 
 
                         Map<String, String> data = new HashMap<String, String>();
-                        data.put("name", name);
+                  //      data.put("name", name);
                         userRef.setValue(data);
 
                         // 表示名をPrefarenceに保存する
-                        saveName(name);
+                    ///    saveName(name);
                     } else {
                         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
                             public void onCancelled(DatabaseError firebaseError) {
                             }
                         });
-                    }
+                    }*/
 
                     // プログレスダイアログを非表示にする
                     mProgress.dismiss();
@@ -136,7 +136,7 @@ public class LoginActivity extends AppCompatActivity {
 
         mEmailEditText = (EditText) findViewById(R.id.emailText);
         mPasswordEditText = (EditText) findViewById(R.id.passwordText);
-        mNameEditText = (EditText) findViewById(R.id.nameText);
+        //mNameEditText = (EditText) findViewById(R.id.nameText);
 
         mProgress = new ProgressDialog(this);
         mProgress.setMessage("処理中...");
@@ -151,9 +151,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 String email = mEmailEditText.getText().toString();
                 String password = mPasswordEditText.getText().toString();
-                String name = mNameEditText.getText().toString();
+            //    String name = mNameEditText.getText().toString();
 
-                if (email.length() != 0 && password.length() >= 6 && name.length() != 0) {
+                if (email.length() != 0 && password.length() >= 6) {
                     // ログイン時に表示名を保存するようにフラグを立てる
                     mIsCreateAccount = true;
 
@@ -214,11 +214,11 @@ public class LoginActivity extends AppCompatActivity {
         //sendFragment
     }
 
-    private void saveName(String name) {
+   /* private void saveName(String name) {
         // Preferenceに保存する
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString(Const.NameKEY, name);
         editor.commit();
-    }
+    }*/
 }
