@@ -14,31 +14,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/emailText"
-        android:hint="メールアドレス"
-        android:layout_weight="1" />
+        android:hint="メールアドレス" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:hint="パスワード(6文字以上)"
-        android:id="@+id/passwordText"
-        android:layout_weight="1" />
+        android:id="@+id/passwordText"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="ログイン"
-        android:id="@+id/loginButton"
-        android:layout_weight="1" />
+        android:id="@+id/loginButton" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="アカウント作成"
-        android:id="@+id/createButton"
-        android:layout_weight="1" />
+        android:id="@+id/createButton" />
 
 </LinearLayout>
