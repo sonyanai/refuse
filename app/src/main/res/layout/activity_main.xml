@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/container"
     android:orientation="vertical"
-    tools:context="jp.techacademy.refuse.black.refuse.MainActivity">
+    tools:context="jp.techacademy.refuse.black.reject.MainActivity">
 
 
     <FrameLayout

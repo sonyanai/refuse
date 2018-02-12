@@ -1,4 +1,4 @@
-package jp.techacademy.refuse.black.refuse;
+package jp.techacademy.refuse.black.reject;
 
 import org.junit.Test;
 

@@ -8,7 +8,7 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     android:orientation="vertical"
-    tools:context="jp.techacademy.refuse.black.refuse.LoginActivity">
+    tools:context="jp.techacademy.refuse.black.reject.LoginActivity">
 
     <EditText
         android:layout_width="match_parent"

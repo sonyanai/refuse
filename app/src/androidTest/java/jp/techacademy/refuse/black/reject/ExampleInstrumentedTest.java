@@ -1,4 +1,4 @@
-package jp.techacademy.refuse.black.refuse;
+package jp.techacademy.refuse.black.reject;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

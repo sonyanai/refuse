@@ -1,4 +1,4 @@
-package jp.techacademy.refuse.black.refuse;
+package jp.techacademy.refuse.black.reject;
 
 /**
  * Created by taiso on 2018/01/20.
