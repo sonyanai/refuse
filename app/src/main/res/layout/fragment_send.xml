@@ -60,13 +60,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="その他"/>
+        android:text="事案概要"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLength="200"
         android:id="@+id/contentEditText"
-        android:hint="その他"/>
+        android:hint="事案概要"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

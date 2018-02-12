@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -65,12 +64,12 @@ public class thisFragment extends Fragment {
         key = bundle.getString("key");
 
 
-        companyTextView.setText("会社名" + companyName);
-        blackNameTextView.setText("社長名" + blackName);
-        caseTextView.setText("事例" + cases);
-        dateTextView.setText("発生年" + date);
-        refTextView.setText("参照元" + ref);
-        contentTextView.setText("その他" + content);
+        companyTextView.setText("会社名\n" + companyName);
+        blackNameTextView.setText("社長名\n" + blackName);
+        caseTextView.setText("事例\n" + cases);
+        dateTextView.setText("発生年\n" + date);
+        refTextView.setText("参照元\n" + ref);
+        contentTextView.setText("事案概要\n" + content);
 
 
 
